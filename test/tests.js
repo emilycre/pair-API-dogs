@@ -12,10 +12,37 @@ const dog = {
 function writeSearchToQuery(existingQuery, searchTerm) {
     const searchParams = new URLSearchParams(existingQuery);
     searchParams.set('searchTerm', searchTerm);
-    searchParams.set('page', 1);
+    //searchParams.set('page', 1);
 
     return searchParams.toString();
 }
+
+function writePageToQuery(existingQuery, page) {
+    const searchParams = new URLSearchParams(existingQuery);
+    searchParams.set('page', page);
+
+    return searchParams.toString();
+}
+
+test('write page to existing', assert => {
+    //arrange
+    const existingQuery = 'searchTerm=bulldog&page=2';
+    const page = 3;
+    //act
+    const query = writePageToQuery(existingQuery, page);
+    //assert
+    assert.equal(query, 'searchTerm=bulldog&page=3');
+});
+
+test('write search to existing query changes search', assert => {
+    //arrange
+    const existingQuery = 'searchTerm=bulldog&page=1';
+    const searchTerm = 'lab';
+    //act
+    const query = writeSearchToQuery(existingQuery, searchTerm);
+    //assert
+    assert.equal(query, 'searchTerm=lab&page=1');
+});
 
 test('dynamically populating dog gallery', assert => {
     const expected = `
@@ -36,5 +63,5 @@ test('write search to empty query', assert => {
     //act
     const query = writeSearchToQuery(existingQuery, searchTerm);
     //assert
-    assert.equal(query, 'searchTerm=bulldog&page=1');
+    assert.equal(query, 'searchTerm=bulldog');
 });
