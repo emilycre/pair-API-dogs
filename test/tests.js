@@ -24,6 +24,28 @@ function writePageToQuery(existingQuery, page) {
     return searchParams.toString();
 }
 
+function readOptions(query) {
+    const searchParams = new URLSearchParams(query);
+    const existingQuery = {
+        searchTerm: searchParams.get('searchTerm'),
+        page: parseInt(searchParams.get('page'))
+    };
+    return existingQuery;
+}
+
+test('read options from query', assert => {
+    //arrange
+    const query = 'searchTerm=bulldog&page=1';
+    const expected = {
+        searchTerm: 'bulldog',
+        page: 1
+    };
+    //act
+    const result = readOptions(query);
+    //assert
+    assert.deepEqual(result, expected);
+});
+
 test('write page to existing', assert => {
     //arrange
     const existingQuery = 'searchTerm=bulldog&page=2';
