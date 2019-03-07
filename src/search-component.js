@@ -11,3 +11,7 @@ searchForm.addEventListener('submit', event => {
     const newQuery = writeSearchToQuery(existingQuery, searchTerm);
     window.location.hash = newQuery;
 });
+
+export function updateSearchTerm(searchTerm) {
+    dogSearch.value = searchTerm;
+}

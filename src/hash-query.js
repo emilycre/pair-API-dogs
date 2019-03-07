@@ -18,5 +18,6 @@ export function readOptions(query) {
         searchTerm: searchParams.get('searchTerm'),
         page: parseInt(searchParams.get('page'))
     };
+    
     return existingQuery;
 }

@@ -1,12 +1,20 @@
 import fakeDogList from '../data/fake-dogs.js';
+
 import loadDogs from './load-dogs.js';
 import { readOptions } from './hash-query.js';
 import './search-component.js';
+import { updateSearchTerm } from './search-component.js';
 
 loadDogs(fakeDogList);
 
+window.addEventListener('hashchange', loadQuery);
+loadQuery();
 
-
+function loadQuery() {
+    const query = window.location.hash.slice(1);
+    const queryOptions = readOptions(query);
+    updateSearchTerm(queryOptions.searchTerm);
+}
 
 
 
