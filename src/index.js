@@ -1,12 +1,12 @@
-// import fakeDogList from '../data/fake-dogs.js';
+// import fakeMovieList from '../data/fake-ass-movies.js';
 
 import './search-component.js';
-import loadDogs from './load-dogs.js';
+import loadMovies from './load-movies.js';
 import { readOptions } from './hash-query.js';
 import { updateSearchTerm } from './search-component.js';
-import makeDogSearchUrl from './make-dog-search-url.js';
+import makeMovieSearchUrl from './make-movie-search-url.js';
 
-// loadDogs();
+// loadMovies();
 
 window.addEventListener('hashchange', loadQuery);
 loadQuery();
@@ -16,7 +16,7 @@ function loadQuery() {
     const queryOptions = readOptions(query);
     updateSearchTerm(queryOptions.searchTerm);
     
-    const url = makeDogSearchUrl(queryOptions);
+    const url = makeMovieSearchUrl(queryOptions);
     
     fetch(url)
         .then(response => response.json())
