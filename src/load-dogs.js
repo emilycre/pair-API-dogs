@@ -1,5 +1,4 @@
 import makeDogTemplate from './make-dog-template.js';
-
 const dogList = document.getElementById('dog-list');
 
 export default function loadDogs(dogs) {

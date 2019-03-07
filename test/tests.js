@@ -23,12 +23,6 @@ test('url includes query and page', assert => {
     assert.equal(url, expected);
 });
 
-
-
-
-
-
-
 test('read options from query', assert => {
     //arrange
     const query = 'searchTerm=bulldog&page=1';
