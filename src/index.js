@@ -1,5 +1,7 @@
 import fakeDogList from '../data/fake-dogs.js';
 import loadDogs from './load-dogs.js';
+import { readOptions } from './hash-query.js';
+
 
 loadDogs(fakeDogList);
 

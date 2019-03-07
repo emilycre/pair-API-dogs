@@ -1,5 +1,6 @@
 import './html-equal.js';
 import makeDogTemplate from '../src/make-dog-template.js';
+import { readOptions, writeSearchToQuery, writePageToQuery } from '../src/hash-query.js';
 
 const test = QUnit.test;
 
@@ -8,30 +9,6 @@ const dog = {
     id: "ryoYGec4Q",
     url: "https://cdn2.thedogapi.com/images/ryoYGec4Q_1280.jpg"
 };
-
-function writeSearchToQuery(existingQuery, searchTerm) {
-    const searchParams = new URLSearchParams(existingQuery);
-    searchParams.set('searchTerm', searchTerm);
-    //searchParams.set('page', 1);
-
-    return searchParams.toString();
-}
-
-function writePageToQuery(existingQuery, page) {
-    const searchParams = new URLSearchParams(existingQuery);
-    searchParams.set('page', page);
-
-    return searchParams.toString();
-}
-
-function readOptions(query) {
-    const searchParams = new URLSearchParams(query);
-    const existingQuery = {
-        searchTerm: searchParams.get('searchTerm'),
-        page: parseInt(searchParams.get('page'))
-    };
-    return existingQuery;
-}
 
 test('read options from query', assert => {
     //arrange
