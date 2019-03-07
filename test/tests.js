@@ -1,6 +1,7 @@
 import './html-equal.js';
 import makeDogTemplate from '../src/make-dog-template.js';
 import { readOptions, writeSearchToQuery, writePageToQuery } from '../src/hash-query.js';
+import makeDogSearchUrl from '../src/make-dog-search-url.js';
 
 const test = QUnit.test;
 
@@ -9,6 +10,24 @@ const dog = {
     id: "ryoYGec4Q",
     url: "https://cdn2.thedogapi.com/images/ryoYGec4Q_1280.jpg"
 };
+
+test('url includes query and page', assert => {
+    const queryOptions = {
+        searchTerm: 'lab',
+        page: 2
+    };
+
+    const expected = 'https://api.thedogapi.com/v1/images/search?api_key=cda1a7db-e4a5-4e81-808d-95185ad8b15e&query=lab&page=2';
+    const url = makeDogSearchUrl(queryOptions);
+
+    assert.equal(url, expected);
+});
+
+
+
+
+
+
 
 test('read options from query', assert => {
     //arrange
