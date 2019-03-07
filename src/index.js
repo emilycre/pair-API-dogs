@@ -6,8 +6,6 @@ import { readOptions } from './hash-query.js';
 import { updateSearchTerm } from './search-component.js';
 import makeMovieSearchUrl from './make-movie-search-url.js';
 
-// loadMovies();
-
 window.addEventListener('hashchange', loadQuery);
 loadQuery();
 
@@ -21,7 +19,7 @@ function loadQuery() {
     fetch(url)
         .then(response => response.json())
         .then(results => {
-            console.log(results.length);
+        loadMovies(results.results);
     });
 }
 
