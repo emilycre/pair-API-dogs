@@ -59,7 +59,7 @@ test('dynamically populating movie gallery', assert => {
     const expected = `
     <li>
         <h2>Title: Star Wars</h2>
-        <img src="https://api.themoviedb.org/3/search/movie/btTdmkgIvOi0FFip1sPuZI2oQG6.jpg" alt="picture of Star Wars poster">
+        <img src="https://image.tmdb.org/t/p/original/btTdmkgIvOi0FFip1sPuZI2oQG6.jpg" alt="picture of Star Wars poster">
     </li>
     `;
 
@@ -74,5 +74,5 @@ test('write search to empty query', assert => {
     //act
     const query = writeSearchToQuery(existingQuery, searchTerm);
     //assert
-    assert.equal(query, 'searchTerm=star+wars');
+    assert.equal(query, 'searchTerm=star+wars&page=1');
 });

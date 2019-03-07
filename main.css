@@ -4,13 +4,18 @@ ul {
     justify-content: space-between;
 }
 
+h2 {
+    text-align: center;
+}
+
 li {
     list-style: none;
-    width: 150px;
+    width: 200px;
 }
 
 img {
     width: 100%;
+    border-radius: 5px;
 }
 
 #search-form {
