@@ -1,5 +1,3 @@
-// import fakeMovieList from '../data/fake-ass-movies.js';
-
 import './search-component.js';
 import loadMovies from './load-movies.js';
 import { readOptions } from './hash-query.js';
