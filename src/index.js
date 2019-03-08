@@ -18,12 +18,12 @@ function loadQuery() {
     fetch(url)
         .then(response => response.json())
         .then(results => {
-        loadMovies(results.results);
-        
+            loadMovies(results.results);
+            
         const pagingInfo = {
-            page: results.page,
-            totalPages: results.total_pages
-        };
-        updatePagingInfo(pagingInfo);
-    });
+                page: results.page,
+                totalPages: results.total_pages
+            };
+            updatePagingInfo(pagingInfo);
+        });
 }
