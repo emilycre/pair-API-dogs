@@ -20,7 +20,7 @@ function loadQuery() {
         .then(results => {
             loadMovies(results.results);
             
-        const pagingInfo = {
+            const pagingInfo = {
                 page: results.page,
                 totalPages: results.total_pages
             };
